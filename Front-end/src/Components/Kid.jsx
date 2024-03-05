@@ -5,7 +5,6 @@ import './AppLogic.js'
 import ShowCard from './ShowCard.jsx';
 import SearchMovie from './SearchMovie.jsx';
 import Navigation from './Navigation.jsx';
-//import data from './Movie.js';
 import Play from './Play.jsx';
 
 // do thể loại không có Home nên cứ để giao diện chính cho dễ nhìn

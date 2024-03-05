@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 
-function Navigation({data}) {
+function Navigation() {
   return (
     <ul className='ul'>
       <li className='ul_li'>

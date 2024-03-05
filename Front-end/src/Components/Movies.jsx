@@ -5,7 +5,6 @@ import './AppLogic.js'
 import ShowCard from './ShowCard.jsx';
 import SearchMovie from './SearchMovie.jsx';
 import Navigation from './Navigation.jsx';
-//import data from './Movie.js';
 import Play from './Play.jsx';
 
 function Movies({data}) {
