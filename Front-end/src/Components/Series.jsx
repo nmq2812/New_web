@@ -5,10 +5,10 @@ import './AppLogic.js'
 import ShowCard from './ShowCard.jsx';
 import SearchMovie from './SearchMovie.jsx';
 import Navigation from './Navigation.jsx';
-import data from './Movie.js';
+//import data from './Movie.js';
 import Play from './Play.jsx';
 
-function SeriesPage() {
+function SeriesPage(data) {
   const cardsRef = useRef(null);
   const seriesList = data.filter(movie => movie.type === 'series');
   return (

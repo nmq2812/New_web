@@ -1,9 +1,10 @@
 const express = require('express');
 const morgan = require('morgan');
+const cors = require("cors");
 const app = express();
 const port = 3000;
 
-//Data 
+//Data
 const movies = [
   {
     id: 1,
@@ -231,6 +232,8 @@ const movies = [
     high: "video/spiderman 1080ph.mp4",
   },
 ];
+
+app.use(cors());
 
 app.get("/", (req, res) => {
   res.send("1");

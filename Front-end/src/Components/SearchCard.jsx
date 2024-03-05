@@ -49,10 +49,10 @@
 
 // eslint-disable-next-line no-unused-vars
 import React from 'react';
-import data from './Movie';
+//import data from './Movie';
 
 // eslint-disable-next-line react/prop-types
-function SearchCard({ filter }) {
+function SearchCard({ filter }, data) {
   // Lọc dữ liệu dựa trên giá trị filter
   const filteredData = data.filter(item => {
     const textValue = `${item.name} ${item.genre} ${item.date} ${item.imdb}`.toUpperCase();

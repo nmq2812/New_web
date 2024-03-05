@@ -1,11 +1,11 @@
 import './App.css'
 import { handleLeftButtonClick, handleRightButtonClick} from './Components/AppLogic.js'
-import { useRef } from 'react';
+import { useRef, useState, useEffect } from 'react';
 import './Components/AppLogic.js'
 import ShowCard from './Components/ShowCard.jsx';
 import SearchMovie from './Components/SearchMovie.jsx';
 import Navigation from './Components/Navigation.jsx';
-import data from './Components/Movie.js';
+//import data from './Components/Movie.js';
 import Play from './Components/Play.jsx';
 
 function App() {
@@ -21,6 +21,7 @@ function App() {
         console.error('Error fetching data:', error);
       });
   }, []);
+  console.log(movies)
 
   const cardsRef = useRef(null);
   return (
@@ -31,7 +32,7 @@ function App() {
           <nav className='nav'>
             <div className='logo'>
               <img src='src/img/logo.png' className='logo_img'></img>
-              <Navigation/>
+              <Navigation data={movies}/>
             </div>  
             <SearchMovie />
           </nav>

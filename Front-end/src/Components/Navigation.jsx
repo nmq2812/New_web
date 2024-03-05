@@ -1,11 +1,11 @@
 import { Link } from 'react-router-dom';
 
-function Navigation() {
+function Navigation({data}) {
   return (
     <ul className='ul'>
       <li className='ul_li'>
         {/* <a className='ul_li_a' href='#'>Home</a> */}
-        <Link to="/Home" className='ul_li_a'>Home</Link>
+        <Link to="/" className='ul_li_a'>Home</Link>
       </li>
       <li className='ul_li'>
         <Link to="/Series" className='ul_li_a'>Series</Link>
