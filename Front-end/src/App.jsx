@@ -9,6 +9,19 @@ import data from './Components/Movie.js';
 import Play from './Components/Play.jsx';
 
 function App() {
+  const [movies, setMovies] = useState([]);
+
+  useEffect(() => {
+    fetch('http://localhost:3000/movies') // Thay thế URL này bằng URL thật của bạn
+      .then(response => response.json())
+      .then(data => {
+        setMovies(data);
+      })
+      .catch(error => {
+        console.error('Error fetching data:', error);
+      });
+  }, []);
+
   const cardsRef = useRef(null);
   return (
       <div className='cha'>
@@ -40,7 +53,7 @@ function App() {
             <i className="bi bi-chevron-left" onClick={() => handleLeftButtonClick(cardsRef)}> </i>
             <i className="bi bi-chevron-right" onClick={() => handleRightButtonClick(cardsRef)}> </i>      
             <div ref={cardsRef} className='section_cards'>
-              <ShowCard data = {data}/>
+              <ShowCard data = {movies}/>
             </div>
           </section>
         </div>
