@@ -77,7 +77,7 @@
 import { useState } from 'react';
 import SearchCard from './SearchCard';
 
-function SearchMovie() {
+function SearchMovie({data}) {
   const [filter, setFilter] = useState('');
 
   const handleInputChange = (event) => {
@@ -95,7 +95,7 @@ function SearchMovie() {
         onChange={handleInputChange}
       />
       <img src='src/img/user.jpg' alt='' className='search_user_img' />
-      {filter && <SearchCard filter={filter} />}
+      {filter && <SearchCard filter={filter} data={data}/>}
     </div>
   );
 }

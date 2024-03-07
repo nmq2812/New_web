@@ -33,7 +33,7 @@ function App() {
               <img src='src/img/logo.png' className='logo_img'></img>
               <Navigation data={movies}/>
             </div>  
-            <SearchMovie />
+            <SearchMovie data={movies}/>
           </nav>
           <div className='content'>
             <h1 id='title' className='conten_h1'>Monney Heist</h1>
