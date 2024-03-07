@@ -1,6 +1,6 @@
 import '../App.css'
 import { handleLeftButtonClick, handleRightButtonClick} from './AppLogic.js'
-import { useRef } from 'react';
+import { useRef, useState, useEffect  } from 'react';
 import './AppLogic.js'
 import ShowCard from './ShowCard.jsx';
 import SearchMovie from './SearchMovie.jsx';
@@ -9,7 +9,18 @@ import Play from './Play.jsx';
 
 function SeriesPage({data}) {
   const cardsRef = useRef(null);
-  const seriesList = data.filter(movie => movie.type === 'series');
+  const [movies, setMovies] = useState([]);
+
+  useEffect(() => {
+    fetch('http://localhost:3000/nav/series') // Thay thế URL này bằng URL thật của bạn
+      .then(response => response.json())
+      .then(data => {
+        setMovies(data);
+      })
+      .catch(error => {
+        console.error('Error fetching data:', error);
+      });
+  }, []);
   return (
       <div className='cha'>
         <div className='boder'>
@@ -20,7 +31,7 @@ function SeriesPage({data}) {
               <img src='src/img/logo.png' className='logo_img'></img>
               <Navigation/>
             </div>
-            <SearchMovie />
+            <SearchMovie data={data}/>
           </nav>
           <div className='content'>
             <h1 id='title' className='conten_h1'>Monney Heist</h1>
@@ -42,7 +53,7 @@ function SeriesPage({data}) {
             <i className="bi bi-chevron-left" onClick={() => handleLeftButtonClick(cardsRef)}> </i>
             <i className="bi bi-chevron-right" onClick={() => handleRightButtonClick(cardsRef)}> </i>
             <div ref={cardsRef} className='section_cards'>
-              <ShowCard data={seriesList}/>
+              <ShowCard data={movies}/>
             </div>
           </section>
         </div>

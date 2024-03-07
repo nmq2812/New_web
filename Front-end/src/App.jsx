@@ -7,21 +7,8 @@ import SearchMovie from './Components/SearchMovie.jsx';
 import Navigation from './Components/Navigation.jsx';
 import Play from './Components/Play.jsx';
 
-function App() {
-  const [movies, setMovies] = useState([]);
-
-  useEffect(() => {
-    fetch('http://localhost:3000/movies') // Thay thế URL này bằng URL thật của bạn
-      .then(response => response.json())
-      .then(data => {
-        setMovies(data);
-      })
-      .catch(error => {
-        console.error('Error fetching data:', error);
-      });
-  }, []);
-  console.log(movies)
-
+function App({movies}) {
+  console.log(movies);
   const cardsRef = useRef(null);
   return (
       <div className='cha'>

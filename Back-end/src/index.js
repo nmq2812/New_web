@@ -244,6 +244,12 @@ app.get('/movies', (req, res) => {
   res.json(movies);
 });
 
+// API cho series
+app.get('/nav/series', (req, res) => {
+  const moviesSeries = movies.filter(movie => movie.type === "series");
+  res.json(moviesSeries);
+});
+
 // API để lấy chi tiết của một bộ phim dựa trên id
 app.get('/movies/:id', (req, res) => {
   const id = parseInt(req.params.id);
